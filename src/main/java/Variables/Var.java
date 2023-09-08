@@ -8,6 +8,8 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,19 +36,17 @@ public class Var {
         this.sSistemaOperativo = System.getProperty("os.name");
 
         String sFichero = "clientes";
-//        String sDirectorio = "src" + File.separator + "main"+File.separator + "data";
         String sDirectorio = "data";
 
         String sPath = getCurrentDir() + File.separator + sDirectorio + File.separator + sFichero;
         CaminoCompletoBD=sPath;
-
         try {
-
             Class.forName("org.h2.Driver");
             coco = DriverManager.getConnection("jdbc:h2:file:" + sPath, "Miguel", "31651918");
-            conectado=coco.isClosed();
-        } catch (ClassNotFoundException | SQLException ex) {
-//            System.out.print(ex);
+            conectado=!coco.isClosed();
+
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return coco;
@@ -71,10 +71,7 @@ public class Var {
     }
 
     public boolean isConectado() {
-        if (conectado)
-        return false;
-        else
-        return true;
+        return conectado;
         
     }
 

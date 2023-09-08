@@ -1,5 +1,6 @@
 
 import Variables.Var;
+import ventanas.prueba;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,9 +22,11 @@ public class Financiera {
         
         Var v= new Var();
         v.conectar();
-        System.out.println(v.getsSistemaOperativo());
-        System.out.println(v.getCaminoCompletoBD());
-        System.out.println(v.isConectado());
+        System.out.println("Sistem Operativo : "+v.getsSistemaOperativo());
+        System.out.println("Path : "+v.getCaminoCompletoBD());
+        System.out.println("conectado : "+v.isConectado());
+        prueba p=new prueba(v);
+        p.setVisible(true);
     }
     
 }
