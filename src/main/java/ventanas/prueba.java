@@ -11,13 +11,14 @@ import Variables.Var;
  * @author migue
  */
 public class prueba extends javax.swing.JFrame {
-
+public Var var;
     /**
      * Creates new form prueba
      * @param v
      */
     public prueba(Var v) {
         initComponents();
+        var=v;
     }
 
     /**
@@ -100,7 +101,7 @@ public class prueba extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        clientes cli=new clientes();
+        clientes cli=new clientes(var);
         Fondo.add(cli);
         cli.setVisible(true);
         

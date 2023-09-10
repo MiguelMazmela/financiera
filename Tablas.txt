@@ -75,3 +75,5 @@ codigo int primary key not null,
 nombre varchar(50),
 descripcion text
 );
+
+INSERT INTO producto VALUES(1, 'DXP','D POR P');
